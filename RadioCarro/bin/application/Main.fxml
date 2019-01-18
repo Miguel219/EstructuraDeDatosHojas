@@ -14,8 +14,6 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2d0796;" BorderPane.alignment="CENTER">
                <children>
-                  <ToggleButton fx:id="onButton" layoutX="542.0" layoutY="68.0" mnemonicParsing="false" onAction="#turnOn" text="ON" />
-                  <ToggleButton fx:id="amButton" layoutX="542.0" layoutY="111.0" mnemonicParsing="false" onAction="#changeFrequency" text="AM" />
                   <TextField fx:id="stationTextField" layoutX="99.0" layoutY="87.0" prefHeight="26.0" prefWidth="356.0" />
                   <Button fx:id="backButton" layoutX="121.0" layoutY="144.0" mnemonicParsing="false" onAction="#changeStation" text="Estación Anterior" />
                   <Button fx:id="nextButton" layoutX="294.0" layoutY="144.0" mnemonicParsing="false" onAction="#changeStation" text="Siguiente Estación" />
@@ -24,8 +22,8 @@
                         <Font size="36.0" />
                      </font>
                   </Label>
-                  <ToggleButton fx:id="offButton" layoutX="584.0" layoutY="68.0" mnemonicParsing="false" onAction="#turnOn" text="OFF" />
-                  <ToggleButton fx:id="fmButton" layoutX="586.0" layoutY="111.0" mnemonicParsing="false" onAction="#changeFrequency" text="FM" />
+                  <Button layoutX="568.0" layoutY="68.0" mnemonicParsing="false" onAction="#turnOn" text="OFF" />
+                  <Button fx:id="frequencyButton" layoutX="568.0" layoutY="118.0" mnemonicParsing="false" onAction="#changeFrequency" text="AM" />
                </children>
             </AnchorPane>
          </center>

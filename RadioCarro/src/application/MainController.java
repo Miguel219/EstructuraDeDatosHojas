@@ -14,18 +14,8 @@ import javafx.scene.control.ToggleGroup;
  */
 public class MainController {
 	
-	//Instanciamos nuestro radio.
-	Radio miRadio = new Radioimp();
 	@FXML
 	private TextField stationTextField;
-	@FXML
-	private ToggleButton onButton;
-	@FXML
-	private ToggleButton offButton;
-	@FXML
-	private ToggleButton amButton;
-	@FXML
-	private ToggleButton fmButton;
 	@FXML
 	private ToggleButton selectButton;
 	@FXML
@@ -34,6 +24,8 @@ public class MainController {
 	private Button backButton;
 	@FXML
 	private Button nextButton;
+	@FXML
+	private Button frequencyButton;
 	@FXML
 	private Button Button1;
 	@FXML
@@ -63,11 +55,13 @@ public class MainController {
 	 * Llama al metodo que apaga o enciende la radio
 	 */
 	public void turnOn(ActionEvent event) {
-		String currentButton = ((Node) event.getSource()).getId();
-		if (currentButton.equals("onButton")) {
-			activateButtons();
-		}else if (currentButton.equals("offButton")) {
+		Button currentButton = (Button)event.getSource();
+		if (currentButton.getText().equals("ON")) {
 			deactivateButtons();
+			currentButton.setText("OFF");
+		}else if (currentButton.getText().equals("OFF")) {
+			activateButtons();
+			currentButton.setText("ON");
 		}
 	}
 	
@@ -75,11 +69,13 @@ public class MainController {
 	 * Llama al metodo que cambia de frecuencia AM o FM
 	 */
 	public void changeFrequency(ActionEvent event) {
-		String currentButton = ((Node) event.getSource()).getId();
-		if (currentButton.equals("amButton")) {
+		Button currentButton = (Button)event.getSource();
+		if (currentButton.getText().equals("AM")) {
 			
-		}else if (currentButton.equals("fmButton")) {
+			currentButton.setText("FM");
+		}else if (currentButton.getText().equals("FM")) {
 			
+			currentButton.setText("AM");
 		}
 	}
 	
@@ -110,10 +106,9 @@ public class MainController {
 	 * Desactiva todos los botones
 	 */
 	public void deactivateButtons() {
-		amButton.setDisable(true);
-		fmButton.setDisable(true);
 		nextButton.setDisable(true);
 		backButton.setDisable(true);
+		frequencyButton.setDisable(true);
 		selectButton.setDisable(true);
 		saveButton.setDisable(true);
 		Button1.setDisable(true);
@@ -134,10 +129,9 @@ public class MainController {
 	 * Activa todos los botones
 	 */
 	public void activateButtons() {
-		amButton.setDisable(false);
-		fmButton.setDisable(false);
 		nextButton.setDisable(false);
 		backButton.setDisable(false);
+		frequencyButton.setDisable(false);
 		selectButton.setDisable(false);
 		saveButton.setDisable(false);
 	}
@@ -174,14 +168,8 @@ public class MainController {
     public void initialize() {
 		//Se crean los toggleGroups para unir los toggleButtons
 		ToggleGroup group1 = new ToggleGroup();
-		onButton.setToggleGroup(group1);
-		offButton.setToggleGroup(group1);
-		ToggleGroup group2 = new ToggleGroup();
-		amButton.setToggleGroup(group2);
-		fmButton.setToggleGroup(group2);
-		ToggleGroup group3 = new ToggleGroup();
-		selectButton.setToggleGroup(group3);
-		saveButton.setToggleGroup(group3);
+		selectButton.setToggleGroup(group1);
+		saveButton.setToggleGroup(group1);
 		stationTextField.setDisable(true);
 		deactivateButtons();
     }
