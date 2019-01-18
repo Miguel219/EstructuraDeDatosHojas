@@ -190,7 +190,7 @@ public class MainController {
 	 */
 	@FXML
     public void initialize() {
-		miRadio = new Rad();
+		miRadio = new Radioimp();
 		//Se crean los toggleGroups para unir los toggleButtons
 		ToggleGroup group1 = new ToggleGroup();
 		selectButton.setToggleGroup(group1);
