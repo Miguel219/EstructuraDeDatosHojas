@@ -1,59 +1,103 @@
 package application;
+import java.util.*;
 
 public class Radioimp implements Radio {
-	
-	private 
-	private 
-	private
-	private 
-	private 
+	// turnOn encendido true apagado false
+	private boolean turnOn = true;
+	// frequency FM true frequency AM false
+	private boolean frequency = true; 
+	// guarda la station de 87.9 a 107.9 en FM y de 530 a 1610 en AM
+	private double station = 87.9;
+	// guarda las estaciones de los botones (12 botones)
+	private ArrayList<Double> favoriteStations= new ArrayList<Double>(12);
 	
 	@Override
 	public void toggle() {
-		// TODO Auto-generated method stub
+		// TODO cambia el estado
+		turnOn=!turnOn;
 
 	}
 
 	@Override
 	public boolean getState() {
-		// TODO Auto-generated method stub
-		return false;
+		// TODO Regresa el estado del radio.
+		return turnOn;
 	}
 
 	@Override
 	public void changeFrequency() {
-		// TODO Auto-generated method stub
-
+		// TODO cambia de frecuencia
+		frequency=!frequency;
+		if(frequency==true) {
+			station=87.9;
+		}else {
+			station=530;
+		}
 	}
 
 	@Override
 	public void changeStation(boolean up) {
-		// TODO Auto-generated method stub
-
+		// TODO cambia estacion dependiendo de la frecuencia y si desea subir (true)o bajar
+        if(frequency==true) {
+        	if(up==true) {
+        		if(station>=107.9) {
+        			station=87.9;
+        		}else {
+        			station= station+0.2;
+        		}
+        	}else {
+        		if(station<=87.9) {
+        			station=107.9;
+        		}else {
+        			station= station-0.2;
+        		}
+        	}
+        }else if(frequency==false) {
+        	if(up==true) {
+        		if(station>=1610) {
+        			station=530;
+        		}else {
+        			station= station+10;
+        		}
+        	}else {
+        		if(station<=530) {
+        			station=1610;
+        		}else {
+        			station= station-10;
+        		}
+        	}
+        }
 	}
 
 	@Override
 	public boolean getFrequency() {
-		// TODO Auto-generated method stub
-		return false;
+		// TODO Regresa la frecuencia del radio
+		return frequency;
 	}
 
 	@Override
 	public void saveStation(int numButton) {
-		// TODO Auto-generated method stub
-
+		// TODO guarda la estacion
+		favoriteStations.set(numButton, station);
 	}
 
 	@Override
 	public void changeStationButton(int numButton) {
-		// TODO Auto-generated method stub
-
+		// TODO cambia la estacion por la guardada en el boton
+		if (favoriteStations.get(numButton)!=null) {
+			if (favoriteStations.get(numButton)>99 && favoriteStations.get(numButton)<108) {
+				frequency=true;
+			}else {
+				frequency=false;
+			}
+			station= favoriteStations.get(numButton);
+		}
 	}
 
 	@Override
 	public double getStation() {
-		// TODO Auto-generated method stub
-		return 0;
+		// TODO regresa la station del radio
+		return station;
 	}
 
 }
