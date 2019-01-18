@@ -11,7 +11,9 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 
 /**
- * @author pecos
+ * @author  Jose Miguel Castañeda 18162
+ * 			Silvio Orozco 18282
+ * 			Roberto Castillo
  *
  */
 public class MainController {
