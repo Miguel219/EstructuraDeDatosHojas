@@ -76,12 +76,13 @@ public class MainController {
 	 */
 	public void changeFrequency(ActionEvent event) {
 		Button currentButton = (Button)event.getSource();
-		if (miRadio.getFrequency()) {
-			currentButton.setText("AM");
-		}else {
-			currentButton.setText("FM");
-		}
 		miRadio.changeFrequency();
+		if (miRadio.getFrequency()) {
+			currentButton.setText("FM");
+		}else {
+			currentButton.setText("AM");
+		}
+		
 		stationTextField.setText(new DecimalFormat("0.0").format(miRadio.getStation()));
 	}
 	
@@ -105,6 +106,11 @@ public class MainController {
 		Button currentButton = (Button)event.getSource();
 		if (selectButton.isSelected()) {
 			miRadio.changeStationButton(Integer.parseInt(currentButton.getText())-1);
+			if (miRadio.getFrequency()) {
+				frequencyButton.setText("FM");
+			}else {
+				frequencyButton.setText("AM");
+			}
 			stationTextField.setText(new DecimalFormat("0.0").format(miRadio.getStation()));
 		}else if (saveButton.isSelected()) {
 			miRadio.saveStation(Integer.parseInt(currentButton.getText())-1);
