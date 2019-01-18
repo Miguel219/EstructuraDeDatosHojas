@@ -85,7 +85,7 @@ public class Radioimp implements Radio {
 	public void changeStationButton(int numButton) {
 		// TODO cambia la estacion por la guardada en el boton
 		if (favoriteStations[numButton]!=null) {
-			if (favoriteStations[numButton]>99 && favoriteStations[numButton]<108) {
+			if (favoriteStations[numButton]>87 && favoriteStations[numButton]<108) {
 				frequency=true;
 			}else {
 				frequency=false;

@@ -6,6 +6,8 @@
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
@@ -14,13 +16,24 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2d0796;" BorderPane.alignment="CENTER">
                <children>
-                  <TextField fx:id="stationTextField" layoutX="99.0" layoutY="87.0" prefHeight="26.0" prefWidth="356.0" />
+                  <TextField fx:id="stationTextField" alignment="CENTER" layoutX="99.0" layoutY="87.0" prefHeight="26.0" prefWidth="356.0">
+                     <font>
+                        <Font name="Impact" size="18.0" />
+                     </font></TextField>
                   <Button fx:id="backButton" layoutX="121.0" layoutY="144.0" mnemonicParsing="false" onAction="#changeStation" text="Estación Anterior" />
                   <Button fx:id="nextButton" layoutX="294.0" layoutY="144.0" mnemonicParsing="false" onAction="#changeStation" text="Siguiente Estación" />
-                  <Label layoutX="296.0" layoutY="27.0" text="RADIO" textFill="#f8f6f6">
+                  <Label layoutX="294.0" layoutY="23.0" prefHeight="50.0" prefWidth="110.0" text="RADIO">
                      <font>
-                        <Font size="36.0" />
+                        <Font name="Impact" size="40.0" />
                      </font>
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop color="BLACK" />
+                              <Stop color="WHITE" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
                   </Label>
                   <Button layoutX="568.0" layoutY="68.0" mnemonicParsing="false" onAction="#turnOn" text="OFF" />
                   <Button fx:id="frequencyButton" layoutX="568.0" layoutY="118.0" mnemonicParsing="false" onAction="#changeFrequency" text="FM" />

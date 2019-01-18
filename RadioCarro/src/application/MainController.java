@@ -16,7 +16,7 @@ import javafx.scene.control.ToggleGroup;
  */
 public class MainController {
 	
-	private Radioimp miRadio; 
+	private Radio miRadio; 
 	@FXML
 	private TextField stationTextField;
 	@FXML
@@ -108,6 +108,8 @@ public class MainController {
 			stationTextField.setText(new DecimalFormat("0.0").format(miRadio.getStation()));
 		}else if (saveButton.isSelected()) {
 			miRadio.saveStation(Integer.parseInt(currentButton.getText())-1);
+			saveButton.setSelected(false);
+			selectButton.setSelected(true);
 		}
 	}
 	
