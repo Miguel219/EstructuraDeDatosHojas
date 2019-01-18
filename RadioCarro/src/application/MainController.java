@@ -11,16 +11,9 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 
 /**
-<<<<<<< HEAD
  * Silvio Orozco 18282
  * Jose Castaneda 18161
  * Roberto Castillo 185546
-=======
- * @author  Jose Miguel Casta�eda 18162
- * 			Silvio Orozco 18282
- * 			Roberto Castillo
- *
->>>>>>> 9d85212293f01d8ac00dae83a4dc84c2d9e68879
  */
 public class MainController {
 	

@@ -1,15 +1,13 @@
 package application;
-<<<<<<< HEAD
 import java.util.*;
 /**
  * Silvio Orozco 18282
  * Jose Castaneda 18161
  * Roberto Castillo 185546
  */
-=======
 
 
->>>>>>> 9d85212293f01d8ac00dae83a4dc84c2d9e68879
+
 public class Radioimp implements Radio {
 	
 	 
