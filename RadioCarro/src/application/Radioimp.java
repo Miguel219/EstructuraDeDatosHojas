@@ -2,14 +2,12 @@ package application;
 import java.util.*;
 
 public class Radioimp implements Radio {
-	// turnOn encendido true apagado false
-	private boolean turnOn = false;
-	// frequency FM true frequency AM false
-	private boolean frequency = true; 
-	// guarda la station de 87.9 a 107.9 en FM y de 530 a 1610 en AM
-	private double station = 87.9;
-	// guarda las estaciones de los botones (12 botones)
-	private Double[] favoriteStations= new Double[12];
+	
+	 
+	private boolean turnOn = false; // TODO turnOn encendido true apagado false
+	private boolean frequency = true; // TODO frequency FM true frequency AM false
+	private double station = 87.9;// TODO guarda la station de 87.9 a 107.9 en FM y de 530 a 1610 en AM
+	private Double[] favoriteStations= new Double[12];// TODO guarda las estaciones de los botones (12 botones)
 	
 	@Override
 	public void toggle() {
