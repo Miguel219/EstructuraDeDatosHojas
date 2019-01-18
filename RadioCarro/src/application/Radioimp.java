@@ -1,6 +1,10 @@
 package application;
 import java.util.*;
-
+/**
+ * Silvio Orozco 18282
+ * Jose Castaneda 18161
+ * Roberto Castillo 185546
+ */
 public class Radioimp implements Radio {
 	// turnOn encendido true apagado false
 	private boolean turnOn = false;

@@ -11,8 +11,9 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 
 /**
- * @author pecos
- *
+ * Silvio Orozco 18282
+ * Jose Castaneda 18161
+ * Roberto Castillo 185546
  */
 public class MainController {
 	
@@ -56,6 +57,7 @@ public class MainController {
 	
 	/**
 	 * Llama al metodo que apaga o enciende la radio
+	 * @param event = cambia la informacion del boton
 	 */
 	public void turnOn(ActionEvent event) {
 		Button currentButton = (Button)event.getSource();
@@ -73,6 +75,7 @@ public class MainController {
 	
 	/**
 	 * Llama al metodo que cambia de frecuencia AM o FM
+	 * @param event = cambia la informacion del boton
 	 */
 	public void changeFrequency(ActionEvent event) {
 		Button currentButton = (Button)event.getSource();
@@ -87,6 +90,7 @@ public class MainController {
 	
 	/**
 	 * Llama al metodo que cambia la estacion
+	 * @param event = cambia la informacion del boton
 	 */
 	public void changeStation(ActionEvent event) {
 		String currentButton = ((Node) event.getSource()).getId();
@@ -100,6 +104,7 @@ public class MainController {
 	
 	/**
 	 * Llama al metodo que selecciona o guarda una estacion en un boton
+	 * @param event = cambia la informacion del boton
 	 */
 	public void favouriteButtons(ActionEvent event) {
 		Button currentButton = (Button)event.getSource();
