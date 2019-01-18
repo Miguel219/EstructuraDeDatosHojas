@@ -1,5 +1,5 @@
 package application;
-import java.util.*;
+
 
 public class Radioimp implements Radio {
 	
@@ -76,19 +76,19 @@ public class Radioimp implements Radio {
 	@Override
 	public void saveStation(int numButton) {
 		// TODO guarda la estacion
-		favoriteStations[numButton] = station;
+		favoriteStations[numButton-1] = station;
 	}
 
 	@Override
 	public void changeStationButton(int numButton) {
 		// TODO cambia la estacion por la guardada en el boton
-		if (favoriteStations[numButton]!=null) {
-			if (favoriteStations[numButton]>87 && favoriteStations[numButton]<108) {
+		if (favoriteStations[numButton-1]!=null) {
+			if (favoriteStations[numButton-1]>87 && favoriteStations[numButton-1]<108) {
 				frequency=true;
 			}else {
 				frequency=false;
 			}
-			station= favoriteStations[numButton];
+			station= favoriteStations[numButton-1];
 		}
 		
 	}

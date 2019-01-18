@@ -107,7 +107,7 @@ public class MainController {
 	public void favouriteButtons(ActionEvent event) {
 		Button currentButton = (Button)event.getSource();
 		if (selectButton.isSelected()) {
-			miRadio.changeStationButton(Integer.parseInt(currentButton.getText())-1);
+			miRadio.changeStationButton(Integer.parseInt(currentButton.getText()));
 			if (miRadio.getFrequency()) {
 				frequencyButton.setText("FM");
 			}else {
@@ -115,7 +115,7 @@ public class MainController {
 			}
 			stationTextField.setText(new DecimalFormat("0.0").format(miRadio.getStation()));
 		}else if (saveButton.isSelected()) {
-			miRadio.saveStation(Integer.parseInt(currentButton.getText())-1);
+			miRadio.saveStation(Integer.parseInt(currentButton.getText()));
 			selectButton.setSelected(true);
 			saveButton.setSelected(false);
 			
@@ -187,7 +187,7 @@ public class MainController {
 	 */
 	@FXML
     public void initialize() {
-		miRadio = new Radioimp();
+		miRadio = new Rad();
 		//Se crean los toggleGroups para unir los toggleButtons
 		ToggleGroup group1 = new ToggleGroup();
 		selectButton.setToggleGroup(group1);
