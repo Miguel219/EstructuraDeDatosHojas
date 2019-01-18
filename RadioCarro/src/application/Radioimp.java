@@ -1,19 +1,22 @@
 package application;
+<<<<<<< HEAD
 import java.util.*;
 /**
  * Silvio Orozco 18282
  * Jose Castaneda 18161
  * Roberto Castillo 185546
  */
+=======
+
+
+>>>>>>> 9d85212293f01d8ac00dae83a4dc84c2d9e68879
 public class Radioimp implements Radio {
-	// turnOn encendido true apagado false
-	private boolean turnOn = false;
-	// frequency FM true frequency AM false
-	private boolean frequency = true; 
-	// guarda la station de 87.9 a 107.9 en FM y de 530 a 1610 en AM
-	private double station = 87.9;
-	// guarda las estaciones de los botones (12 botones)
-	private Double[] favoriteStations= new Double[12];
+	
+	 
+	private boolean turnOn = false; // TODO turnOn encendido true apagado false
+	private boolean frequency = true; // TODO frequency FM true frequency AM false
+	private double station = 87.9;// TODO guarda la station de 87.9 a 107.9 en FM y de 530 a 1610 en AM
+	private Double[] favoriteStations= new Double[12];// TODO guarda las estaciones de los botones (12 botones)
 	
 	@Override
 	public void toggle() {
@@ -82,19 +85,19 @@ public class Radioimp implements Radio {
 	@Override
 	public void saveStation(int numButton) {
 		// TODO guarda la estacion
-		favoriteStations[numButton] = station;
+		favoriteStations[numButton-1] = station;
 	}
 
 	@Override
 	public void changeStationButton(int numButton) {
 		// TODO cambia la estacion por la guardada en el boton
-		if (favoriteStations[numButton]!=null) {
-			if (favoriteStations[numButton]>87 && favoriteStations[numButton]<108) {
+		if (favoriteStations[numButton-1]!=null) {
+			if (favoriteStations[numButton-1]>87 && favoriteStations[numButton-1]<108) {
 				frequency=true;
 			}else {
 				frequency=false;
 			}
-			station= favoriteStations[numButton];
+			station= favoriteStations[numButton-1];
 		}
 		
 	}

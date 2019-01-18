@@ -11,9 +11,16 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 
 /**
+<<<<<<< HEAD
  * Silvio Orozco 18282
  * Jose Castaneda 18161
  * Roberto Castillo 185546
+=======
+ * @author  Jose Miguel Casta�eda 18162
+ * 			Silvio Orozco 18282
+ * 			Roberto Castillo
+ *
+>>>>>>> 9d85212293f01d8ac00dae83a4dc84c2d9e68879
  */
 public class MainController {
 	
@@ -79,12 +86,13 @@ public class MainController {
 	 */
 	public void changeFrequency(ActionEvent event) {
 		Button currentButton = (Button)event.getSource();
-		if (miRadio.getFrequency()) {
-			currentButton.setText("AM");
-		}else {
-			currentButton.setText("FM");
-		}
 		miRadio.changeFrequency();
+		if (miRadio.getFrequency()) {
+			currentButton.setText("FM");
+		}else {
+			currentButton.setText("AM");
+		}
+		
 		stationTextField.setText(new DecimalFormat("0.0").format(miRadio.getStation()));
 	}
 	
@@ -109,10 +117,15 @@ public class MainController {
 	public void favouriteButtons(ActionEvent event) {
 		Button currentButton = (Button)event.getSource();
 		if (selectButton.isSelected()) {
-			miRadio.changeStationButton(Integer.parseInt(currentButton.getText())-1);
+			miRadio.changeStationButton(Integer.parseInt(currentButton.getText()));
+			if (miRadio.getFrequency()) {
+				frequencyButton.setText("FM");
+			}else {
+				frequencyButton.setText("AM");
+			}
 			stationTextField.setText(new DecimalFormat("0.0").format(miRadio.getStation()));
 		}else if (saveButton.isSelected()) {
-			miRadio.saveStation(Integer.parseInt(currentButton.getText())-1);
+			miRadio.saveStation(Integer.parseInt(currentButton.getText()));
 			selectButton.setSelected(true);
 			saveButton.setSelected(false);
 			
@@ -184,7 +197,7 @@ public class MainController {
 	 */
 	@FXML
     public void initialize() {
-		miRadio = new Radioimp();
+		miRadio = new Rad();
 		//Se crean los toggleGroups para unir los toggleButtons
 		ToggleGroup group1 = new ToggleGroup();
 		selectButton.setToggleGroup(group1);
