@@ -14,6 +14,8 @@ import javafx.scene.control.ToggleGroup;
  */
 public class MainController {
 	
+	//Instanciamos nuestro radio.
+	Radio miRadio = new Radioimp();
 	@FXML
 	private TextField stationTextField;
 	@FXML
