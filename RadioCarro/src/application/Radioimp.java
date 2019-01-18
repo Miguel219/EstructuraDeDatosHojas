@@ -3,13 +3,13 @@ import java.util.*;
 
 public class Radioimp implements Radio {
 	// turnOn encendido true apagado false
-	private boolean turnOn = true;
+	private boolean turnOn = false;
 	// frequency FM true frequency AM false
 	private boolean frequency = true; 
 	// guarda la station de 87.9 a 107.9 en FM y de 530 a 1610 en AM
 	private double station = 87.9;
 	// guarda las estaciones de los botones (12 botones)
-	private ArrayList<Double> favoriteStations= new ArrayList<Double>(12);
+	private Double[] favoriteStations= new Double[12];
 	
 	@Override
 	public void toggle() {
@@ -78,19 +78,19 @@ public class Radioimp implements Radio {
 	@Override
 	public void saveStation(int numButton) {
 		// TODO guarda la estacion
-		favoriteStations.set(numButton, station);
+		favoriteStations[numButton] = station;
 	}
 
 	@Override
 	public void changeStationButton(int numButton) {
 		// TODO cambia la estacion por la guardada en el boton
-		if (favoriteStations.get(numButton)!=null) {
-			if (favoriteStations.get(numButton)>99 && favoriteStations.get(numButton)<108) {
+		if (favoriteStations[numButton]!=null) {
+			if (favoriteStations[numButton]>99 && favoriteStations[numButton]<108) {
 				frequency=true;
 			}else {
 				frequency=false;
 			}
-			station= favoriteStations.get(numButton);
+			station= favoriteStations[numButton];
 		}
 		
 	}

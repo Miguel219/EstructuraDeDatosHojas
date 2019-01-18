@@ -1,5 +1,7 @@
 package application;
 
+import java.text.DecimalFormat;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -14,6 +16,7 @@ import javafx.scene.control.ToggleGroup;
  */
 public class MainController {
 	
+	private Radioimp miRadio; 
 	@FXML
 	private TextField stationTextField;
 	@FXML
@@ -56,13 +59,16 @@ public class MainController {
 	 */
 	public void turnOn(ActionEvent event) {
 		Button currentButton = (Button)event.getSource();
-		if (currentButton.getText().equals("ON")) {
+		if (miRadio.getState()) {
 			deactivateButtons();
 			currentButton.setText("OFF");
-		}else if (currentButton.getText().equals("OFF")) {
+			stationTextField.setText("");
+		}else {
 			activateButtons();
 			currentButton.setText("ON");
+			stationTextField.setText(new DecimalFormat("0.0").format(miRadio.getStation()));
 		}
+		miRadio.toggle();
 	}
 	
 	/**
@@ -70,13 +76,13 @@ public class MainController {
 	 */
 	public void changeFrequency(ActionEvent event) {
 		Button currentButton = (Button)event.getSource();
-		if (currentButton.getText().equals("AM")) {
-			
-			currentButton.setText("FM");
-		}else if (currentButton.getText().equals("FM")) {
-			
+		if (miRadio.getFrequency()) {
 			currentButton.setText("AM");
+		}else {
+			currentButton.setText("FM");
 		}
+		miRadio.changeFrequency();
+		stationTextField.setText(new DecimalFormat("0.0").format(miRadio.getStation()));
 	}
 	
 	/**
@@ -84,21 +90,24 @@ public class MainController {
 	 */
 	public void changeStation(ActionEvent event) {
 		String currentButton = ((Node) event.getSource()).getId();
-		if (currentButton.equals("selectButton")) {
-			
-		}else if (currentButton.equals("saveButton")) {
-			
+		if (currentButton.equals("backButton")) {
+			miRadio.changeStation(false);
+		}else if (currentButton.equals("nextButton")) {
+			miRadio.changeStation(true);
 		}
+		stationTextField.setText(new DecimalFormat("0.0").format(miRadio.getStation()));
 	}
 	
 	/**
 	 * Llama al metodo que selecciona o guarda una estacion en un boton
 	 */
 	public void favouriteButtons(ActionEvent event) {
+		Button currentButton = (Button)event.getSource();
 		if (selectButton.isSelected()) {
-			
+			miRadio.changeStationButton(Integer.parseInt(currentButton.getText())-1);
+			stationTextField.setText(new DecimalFormat("0.0").format(miRadio.getStation()));
 		}else if (saveButton.isSelected()) {
-			
+			miRadio.saveStation(Integer.parseInt(currentButton.getText())-1);
 		}
 	}
 	
@@ -166,6 +175,7 @@ public class MainController {
 	 */
 	@FXML
     public void initialize() {
+		miRadio = new Radioimp();
 		//Se crean los toggleGroups para unir los toggleButtons
 		ToggleGroup group1 = new ToggleGroup();
 		selectButton.setToggleGroup(group1);
